@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body {
+    height: 100vh;
+    font-family: "Kelly Slab", cursive;
+    background: #232427;
+}
+
+ .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    height: 530px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+ .player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 490px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+ .player .main {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+ .player .main .thumbnail img {
+    width: 100%;
+    height: 250px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    outline: none;
+    /* background: linear-gradient(to right, #f7ff00, #db36a4); */
+    overflow: hidden;
+    cursor: pointer;
+}
+.seekbar input[type=range] {
+    background: #e91e63;
+}
+
+ input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0px;
+    height: 0px;
+    box-shadow: -300px 0px 0px 300px #00acee;
+}
+
+.player .main .seekbar .time-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.player .main .volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-top: 12px;
+    padding: 10px;
+    border: 1px solid white;
+    gap: 5px;
+}
+.player .main .volume-container #volume-button {
+    cursor: pointer;
+}
+ .player .main .details {
+    text-align: center;
+    padding: 20px 0;
+}
+
+ .player .main .details h2 {
+    font-size: 1em;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    color: #4158D0;
+    background-image: linear-gradient(45deg, #ffffff 15%, #ffffff 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .player .main .details p {
+    font-size: 0.9em;
+    color: #fff;
+}
+
+ .player .main .details p:hover {
+    /* text-decoration: underline; */
+}
+
+ .player .main .controls {
+    display: flex;
+    justify-content: center;
+}
+
+ .player .main .controls .bground {
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid white;
+
+    /* background-image: linear-gradient(45deg, #4158D0 0%, #C850C0 45%, #FFCC70 100%); */
+}
+.player .main .controls .bground:hover {
+   background: #e91e63;
+}
+.player .main .controls .play-pause-control {
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    transition: all 0.5s;
+animation: animate 8s linear infinite;
+}
+.player .main .controls .play-pause-control:hover {
+    background: transparent;
+}
+
+ .player .main .controls i.fa {
+    font-size: 0.8em;
+    padding-top: 4px;
+    background-color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .player .main .controls i.fa::before {
+    padding: 5px;
+}
+
+ .player .main .controls i.fas,
+ .player .main .controls i.far {
+    font-size: 0.7em;
+    color: #4158D0;
+    background-image: linear-gradient(45deg, #ffffff 15%, #fdfdfd 75%);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .player .main .controls>div {
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+ .player .main .controls>div.play-pause-control i.fa-play {
+    display: none;
+}
+
+ .player .main .controls>div.play-pause-control.paused i.fa-play {
+    display: block;
+}
+
+ .player .main .controls>div.play-pause-control.paused i.fa-pause {
+    display: none;
+}
+
+ .player .player-list {
+    position: absolute;
+    width: 100%;
+    margin-top: -20px;
+    height: 380px;
+    overflow: scroll;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+}
+
+ .player .player-list .toggle-list {
+    top: 0;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    background-color: #21D4FD;
+    background-image: linear-gradient(45deg, #959595 0%, #fafafa 45%, #959595 100%);
+}
+
+ .player .player-list .toggle-list i.fa {
+    color: #110f0f;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+ .player .player-list .toggle-list i.fa-angle-down {
+    display: none;
+}
+
+ .player .player-list .toggle-list .toggle-list.active i.fa-angle-up {
+    display: block;
+}
+
+ .player .player-list .toggle-list .toggle-list.active i.fa-angle-down {
+    display: none;
+}
+
+ .player .player-list .list {
+    padding: 10px;
+}
+
+ .player .player-list .list .item {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+ .player .player-list .list .item .thumbnail {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+ .player .player-list .list .item .thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+
+ .player .player-list .list .item .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+ .player .player-list .list .item .details h2 {
+    font-size: 1em;
+    color: #f7ff00;
+    background-color: #8ed6df;
+    /* background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%); */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ .player .player-list .list .item .details p {
+    color: #fff;
+    font-size: 0.8em;
+}
+
+ .player .player-list::-webkit-scrollbar {
+    width: 0;
+    background: #222;
+}
+
+ .player .player-list::-webkit-scrollbar-thumb {
+    background: #00acee;
+}
+
+ .player.activeSongList .player-list {
+    margin-top: -330px;
+}
+
+ .player.activeSongList .main {
+    filter: blur(5px);
+}
+
+/*FullScreen Button*/
+button {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    color: #fff;
+    border: transparent;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9em;
+    background: #e91e63;
+    background-size: 400%;
+    z-index: 1;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s;
+    z-index: 10;
+}
+
+button:hover {
+    animation: animate 8s linear infinite;
+}
+
+button:focus {
+    outline: none;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+
+#loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #232427;
+    position: fixed;
+    z-index: 999999;
+}
+#loader .container {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+#loader p{
+  color: #fff;
+}
+
+.spinner {
+    margin: auto;
+    height: 60px;
+}
+
+.spinner>div {
+    background: #195FD2;
+    height: 100%;
+    width: 2px;
+    float: left;
+    margin: 0 2px;
+    -webkit-animation: stretch 2s infinite;
+    animation: stretch 2s infinite;
+    -webkit-animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
+    animation-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
+}
+
+.spinner .r1 {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+.spinner .r2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .r3 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.spinner .r4 {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.spinner .r5 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+@-webkit-keyframes stretch {
+
+    0%,
+    20%,
+    49% {
+        transform: scaleY(0.4);
+        background-color: #e91e63;
+    }
+
+    10% {
+        transform: scaleY(1);
+    }
+
+    50%,
+    70%,
+    100% {
+        transform: scaleY(0.4);
+        background-color: #ffffff;
+    }
+
+    60% {
+        transform: scaleY(1);
+        background-color: #e78fad;
+    }
+}
+
+@keyframes stretch {
+
+    0%,
+    20%,
+    49% {
+        transform: scaleY(0.4);
+        background-color: #e91e63;
+    }
+
+    10% {
+        transform: scaleY(1);
+    }
+
+    50%,
+    70%,
+    100% {
+        transform: scaleY(0.4);
+        background-color: #e78fad;
+    }
+
+    60% {
+        transform: scaleY(1);
+        background-color: #ffffff;
+    }
+}
