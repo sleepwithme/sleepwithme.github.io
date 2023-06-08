@@ -872,7 +872,7 @@ button:focus {
     height: 100%;
     overflow: hidden;
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
+    /* background: rgba(255, 255, 255, 0.1); */
 }
 
 .lines .line::after {
