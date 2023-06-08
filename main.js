@@ -12,29 +12,59 @@ const calculateTime = (secs) => {
   const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
   return `${minutes}:${returnedSeconds}`;
 };
-
-let songList = [
+let originalSongList = [
   {
     thumbnail: "./assets/images/pr-t-0.JPG",
     audio: "./assets/songs/Aaja Nindiya Rani Aaja-me.mp3",
     songname: "Going to sleep now",
     artistname: "🎧 Mitthu 🎧",
+    option: "lori",
   },
   {
     thumbnail: "./assets/images/pr-t-1.JPG",
     audio: "./assets/songs/lori-mine.mp3",
     songname: "I love sleep",
     artistname: "🎧 Mumfali 🎧",
+    option: "lori",
   },
-
+  {
+    thumbnail: "./assets/images/pr-t-1.JPG",
+    audio: "./assets/songs/Sukoon.mp3",
+    songname: "Sukoon",
+    artistname: "🎧 Mumfali 🎧",
+    option: "song",
+  },
+  {
+    thumbnail: "./assets/images/pr-t-1.JPG",
+    audio: "./assets/songs/Choo Lo.mp3",
+    songname: "Choo Lo",
+    artistname: "🎧 Mumfali 🎧",
+    option: "song",
+  },
+  {
+    thumbnail: "./assets/images/pr-t-1.JPG",
+    audio: "./assets/songs/Matkar Maya Ko Ahankar.mp3",
+    songname: "Matkar Maya Ko",
+    artistname: "🎧 Mumfali 🎧",
+    option: "song",
+  },
+  {
+    thumbnail: "./assets/images/pr-t-1.JPG",
+    audio: "./assets/songs/Baadalon Mein Ghar.mp3",
+    songname: "Baadalon Mein Ghar",
+    artistname: "🎧 Mumfali 🎧",
+    option: "song",
+  },
   {
     thumbnail: "./assets/images/pr-t-2.JPG",
     audio: "./assets/stories/Power of Silence.mp3",
     songname: "Power of Silence",
     artistname: "🎧 Keep listen 🎧",
+    option: "kahani",
   },
 ];
 
+let songList = originalSongList.filter(({ option }) => option === "song");
 let currentSongIndex = 0;
 let muteState = "unmute";
 let player = _(".player"),
@@ -54,17 +84,53 @@ let main = {
   prevControl: _(".player .main .controls .prev-control"),
   playPauseControl: _(".player .main .controls .play-pause-control"),
   nextControl: _(".player .main .controls .next-control"),
+  songOptionBtn: _("#song-option"),
+  loriOptionBtn: _("#lori-option"),
+  kahaniOptionBtn: _("#kahani-option"),
 };
+
+main.songOptionBtn.classList.add("active-option");
+main.songOptionBtn.addEventListener("click", function () {
+  main.songOptionBtn.classList.add("active-option");
+  main.loriOptionBtn.classList.remove("active-option");
+  main.kahaniOptionBtn.classList.remove("active-option");
+  currentSongIndex = 0;
+  songList = originalSongList.filter(({ option }) => option === "song");
+  initialLoad();
+  loadSong(currentSongIndex, 1);
+});
+
+main.loriOptionBtn.addEventListener("click", function () {
+  main.songOptionBtn.classList.remove("active-option");
+  main.loriOptionBtn.classList.add("active-option");
+  main.kahaniOptionBtn.classList.remove("active-option");
+  currentSongIndex = 0;
+  songList = originalSongList.filter(({ option }) => option === "lori");
+  initialLoad();
+  loadSong(currentSongIndex, 1);
+});
+
+main.kahaniOptionBtn.addEventListener("click", function () {
+  main.songOptionBtn.classList.remove("active-option");
+  main.loriOptionBtn.classList.remove("active-option");
+  main.kahaniOptionBtn.classList.add("active-option");
+  currentSongIndex = 0;
+  songList = originalSongList.filter(({ option }) => option === "kahani");
+  initialLoad();
+  loadSong(currentSongIndex, 1);
+});
 
 toggleSongList.addEventListener("click", function () {
   toggleSongList.classList.toggle("active");
   player.classList.toggle("activeSongList");
 });
 
-_(".player .player-list .list").innerHTML = songList
-  .map(function (song, songIndex) {
-    return `
+function initialLoad() {
+  _(".player .player-list .list").innerHTML = songList
+    .map(function (song, songIndex) {
+      return `
 		<div class="item" songIndex="${songIndex}">
+     <div class="item-container" style="display:flex; align-items: center">
 			<div class="thumbnail">
 				<img src="${song.thumbnail}">
 			</div>
@@ -72,18 +138,30 @@ _(".player .player-list .list").innerHTML = songList
 				<h2>${song.songname}</h2>
 				<p>${song.artistname}</p>
 			</div>
+      </div>
 		</div>
 	`;
-  })
-  .join("");
+    })
+    .join("");
 
-let songListItems = _all(".player .player-list .list .item");
-for (let i = 0; i < songListItems.length; i++) {
-  songListItems[i].addEventListener("click", function () {
-    currentSongIndex = parseInt(songListItems[i].getAttribute("songIndex"));
-    loadSong(currentSongIndex, 1);
-    player.classList.remove("activeSongList");
-  });
+  let songListItems = _all(".player .player-list .list .item");
+  for (let i = 0; i < songListItems.length; i++) {
+    songListItems[i].addEventListener("click", function () {
+      currentSongIndex = parseInt(songListItems[i].getAttribute("songIndex"));
+      loadSong(currentSongIndex, 1);
+      // player.classList.remove("activeSongList");
+    });
+  }
+}
+
+function removeElement() {
+  let songListItems = _all(".player .player-list .list .item");
+  for (let i = 0; i < songListItems.length; i++) {
+    const el = _(".image-gif");
+    if (el && songListItems[i].children.length > 1) {
+      songListItems[i].removeChild(el);
+    }
+  }
 }
 
 function loadSong(songIndex, mode) {
@@ -102,6 +180,13 @@ function loadSong(songIndex, mode) {
 
   main.audio.addEventListener("canplay", function () {
     if (mode === 1) {
+      _(".play-spinner").style.display = "flex";
+      removeElement();
+      let songListItems = _all(".player .player-list .list .item");
+      var elem = document.createElement("img");
+      elem.classList.add("image-gif");
+      elem.setAttribute("src", "./assets/icons/animated-duck.gif");
+      songListItems[songIndex].appendChild(elem);
       main.audio.play();
     }
     if (!main.audio.paused) {
@@ -114,6 +199,9 @@ function loadSong(songIndex, mode) {
     };
   });
 }
+
+initialLoad();
+
 setInterval(function () {
   main.seekbar.value = parseInt(main.audio.currentTime);
   main.currentDuration.textContent = calculateTime(main.audio.currentTime);
@@ -136,7 +224,16 @@ main.playPauseControl.addEventListener("click", function () {
   if (main.audio.paused) {
     main.playPauseControl.classList.remove("paused");
     main.audio.play();
+    _(".play-spinner").style.display = "flex";
+    removeElement();
+    let songListItems = _all(".player .player-list .list .item");
+    var elem = document.createElement("img");
+    elem.classList.add("image-gif");
+    elem.setAttribute("src", "./assets/icons/animated-duck.gif");
+    songListItems[currentSongIndex].appendChild(elem);
   } else {
+    removeElement();
+    _(".play-spinner").style.display = "none";
     main.playPauseControl.classList.add("paused");
     main.audio.pause();
   }

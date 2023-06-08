@@ -28,16 +28,30 @@
 
     <div class="card">
       <div class="player">
+        <div class="song-options-container">
+          <div class="song-option" id="song-option">Songs</div>
+          <div class="song-option" id="lori-option">Lori</div>
+          <div class="song-option" id="kahani-option">Kahani</div>
+        </div>
         <div class="main">
           <audio></audio>
           <div class="thumbnail">
             <img src="./assets/images/pr-t-0.JPG" />
           </div>
-          <div class="seekbar">
+          <div class="seekbar" style="position: relative">
             <input type="range" />
             <div class="time-container">
               <span id="current-time" class="time">0:00</span>
               <span id="duration" class="time">0:00</span>
+            </div>
+            <div class="play-spinner">
+              <div class="spinner">
+                <div class="r1"></div>
+                <div class="r2"></div>
+                <div class="r3"></div>
+                <div class="r4"></div>
+                <div class="r5"></div>
+              </div>
             </div>
           </div>
           <div class="details">
@@ -80,12 +94,17 @@
 
           <div class="list">
             <div class="item">
-              <div class="thumbnail">
-                <img src="" />
-              </div>
-              <div class="details">
-                <h2></h2>
-                <p></p>
+              <div
+                class="item-container"
+                style="display: flex; align-items: center"
+              >
+                <div class="thumbnail">
+                  <img src="" />
+                </div>
+                <div class="details">
+                  <h2></h2>
+                  <p></p>
+                </div>
               </div>
             </div>
           </div>
