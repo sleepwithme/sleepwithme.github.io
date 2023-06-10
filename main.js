@@ -14,49 +14,77 @@ const calculateTime = (secs) => {
 };
 let originalSongList = [
   {
-    thumbnail: "./assets/images/pr-t-0.JPG",
-    audio: "./assets/songs/Aaja Nindiya Rani Aaja-me.mp3",
-    songname: "Going to sleep now",
-    artistname: "🎧 Mitthu 🎧",
-    option: "lori",
-  },
-  {
-    thumbnail: "./assets/images/pr-t-1.JPG",
-    audio: "./assets/songs/lori-mine.mp3",
-    songname: "I love sleep",
-    artistname: "🎧 Mumfali 🎧",
-    option: "lori",
-  },
-  {
-    thumbnail: "./assets/images/pr-t-1.JPG",
+    thumbnail:
+      "./assets/images/49614720_2040712002633222_6009675289939608246_n.jpg",
     audio: "./assets/songs/Sukoon.mp3",
     songname: "Sukoon",
-    artistname: "🎧 Mumfali 🎧",
+    artistname: "🎧 Bubu 🎧",
     option: "song",
   },
   {
-    thumbnail: "./assets/images/pr-t-1.JPG",
+    thumbnail:
+      "./assets/images/323703637_193717379917853_1243084142063370312_n.jpeg",
     audio: "./assets/songs/Choo Lo.mp3",
     songname: "Choo Lo",
-    artistname: "🎧 Mumfali 🎧",
+    artistname: "🎧 Mitthu 🎧",
     option: "song",
   },
   {
-    thumbnail: "./assets/images/pr-t-1.JPG",
+    thumbnail:
+      "./assets/images/51870135_2250395895218722_1971264528730143164_n.jpg",
+    audio: "./assets/songs/Raat Din.mp3",
+    songname: "Raat Din",
+    artistname: "🎧 Chatori 🎧",
+    option: "song",
+  },
+  {
+    thumbnail:
+      "./assets/images/50547388_337747130409179_6773505002304812641_n.jpg",
+    audio: "./assets/songs/Phir Miloge Na.mp3",
+    songname: "Phir Miloge Na",
+    artistname: "🎧 Bubu 🎧",
+    option: "song",
+  },
+  {
+    thumbnail:
+      "./assets/images/323720736_923484395487581_1043386982116428014_n.jpeg",
     audio: "./assets/songs/Matkar Maya Ko Ahankar.mp3",
     songname: "Matkar Maya Ko",
     artistname: "🎧 Mumfali 🎧",
     option: "song",
   },
   {
-    thumbnail: "./assets/images/pr-t-1.JPG",
+    thumbnail:
+      "./assets/images/324229777_135404352702105_2002262368483623706_n.jpeg",
     audio: "./assets/songs/Baadalon Mein Ghar.mp3",
     songname: "Baadalon Mein Ghar",
-    artistname: "🎧 Mumfali 🎧",
+    artistname: "🎧 Mitthu 🎧",
     option: "song",
   },
   {
+    thumbnail:
+      "./assets/images/240414686_3078616802459206_5153506716969777119_n.jpg",
+    audio: "./assets/songs/Aaja Nindiya Rani Aaja-me.mp3",
+    songname: "Going to sleep now",
+    artistname: "🎧 Mitthu 🎧",
+    option: "lori",
+  },
+  {
+    thumbnail: "./assets/images/pr-t-0.JPG",
+    audio: "./assets/songs/lori-mine.mp3",
+    songname: "I love sleep",
+    artistname: "🎧 Mumfali 🎧",
+    option: "lori",
+  },
+  {
     thumbnail: "./assets/images/pr-t-2.JPG",
+    audio: "./assets/songs/Twinkle Twinkle Little Star.mp3",
+    songname: "Little star",
+    artistname: "🎧 Bubu 🎧",
+    option: "lori",
+  },
+  {
+    thumbnail: "./assets/images/pr-t-1.JPG",
     audio: "./assets/stories/Power of Silence.mp3",
     songname: "Power of Silence",
     artistname: "🎧 Keep listen 🎧",

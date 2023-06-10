@@ -48,6 +48,7 @@
  .player .main .thumbnail img {
     width: 100%;
     height: 250px;
+    /* opacity: 0.8; */
 }
 
 input[type=range] {
@@ -219,6 +220,21 @@ animation: animate 8s linear infinite;
 
  .player .player-list .list {
     padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+.player .player-list .list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #7b7c72;
+}
+
+.player .player-list .list::-webkit-scrollbar {
+  width: 4px;
+  background-color: #7b7c72;
+}
+
+.player .player-list .list::-webkit-scrollbar-thumb {
+  background-color: #e91e63;
 }
 
  .player .player-list .list .item {
