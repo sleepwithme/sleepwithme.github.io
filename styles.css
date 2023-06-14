@@ -94,7 +94,7 @@ input[type=range] {
     cursor: pointer;
 }
  .player .main .details {
-    text-align: center;
+    text-align: left;
     padding: 20px 0;
 }
 
@@ -467,10 +467,10 @@ button:focus {
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
-    top: 20px;
+    justify-content: flex-end;
+    top: 10px;
     width: 100%;
-    display: none;
+    display: flex;
 }
 .play-spinner .spinner {
     height: 30px;   

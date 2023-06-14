@@ -15,6 +15,14 @@ const calculateTime = (secs) => {
 let originalSongList = [
   {
     thumbnail:
+      "./assets/images/81116007_2882514855126628_7339892151150168795_n.jpg",
+    audio: "./assets/songs/Jis din tum.mp3",
+    songname: "Jis Din Tum",
+    artistname: "🎧 Mitthu 🎧",
+    option: "song",
+  },
+  {
+    thumbnail:
       "./assets/images/49614720_2040712002633222_6009675289939608246_n.jpg",
     audio: "./assets/songs/Sukoon.mp3",
     songname: "Sukoon",
@@ -208,7 +216,7 @@ function loadSong(songIndex, mode) {
 
   main.audio.addEventListener("canplay", function () {
     if (mode === 1) {
-      _(".play-spinner").style.display = "flex";
+      // _(".play-spinner").style.display = "flex";
       removeElement();
       let songListItems = _all(".player .player-list .list .item");
       var elem = document.createElement("img");
@@ -252,7 +260,7 @@ main.playPauseControl.addEventListener("click", function () {
   if (main.audio.paused) {
     main.playPauseControl.classList.remove("paused");
     main.audio.play();
-    _(".play-spinner").style.display = "flex";
+    // _(".play-spinner").style.display = "flex";
     removeElement();
     let songListItems = _all(".player .player-list .list .item");
     var elem = document.createElement("img");
@@ -261,7 +269,7 @@ main.playPauseControl.addEventListener("click", function () {
     songListItems[currentSongIndex].appendChild(elem);
   } else {
     removeElement();
-    _(".play-spinner").style.display = "none";
+    // _(".play-spinner").style.display = "none";
     main.playPauseControl.classList.add("paused");
     main.audio.pause();
   }
