@@ -12,6 +12,17 @@
     background: #232427;
 }
 
+.card-root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 650px;
+  background: transparent;
+}
+
  .card {
     position: absolute;
     top: 50%;
@@ -946,4 +957,21 @@ button:focus {
     100% {
         top: 110%;
     }
+}
+
+.dudu-bubu-img {
+      z-index: 999999999999;
+        height: 100px;
+        transform: scaleX(-1);
+        position: absolute;
+        top: -38px;
+        left: 30px;
+}
+.dudu-bubu-img-bottom {
+  z-index: 999999999999;
+  height: 115px;
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  right: 50%;
 }

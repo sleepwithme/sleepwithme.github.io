@@ -36,93 +36,99 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <div class="card">
-      <div class="player">
-        <div class="song-options-container">
-          <div class="song-option" id="song-option">Songs</div>
-          <div class="song-option" id="lori-option">Lori</div>
-          <div class="song-option" id="kahani-option">Kahani</div>
-        </div>
-        <div class="main">
-          <audio></audio>
-          <div class="thumbnail">
-            <img
-              src="./assets/images/49614720_2040712002633222_6009675289939608246_n.jpg"
-            />
-          </div>
-          <div class="seekbar" style="position: relative">
-            <input type="range" />
-            <div class="time-container">
-              <span id="current-time" class="time">0:00</span>
-              <span id="duration" class="time">0:00</span>
-            </div>
-            <div class="play-spinner">
-              <img src="./assets/icons/bubu-love.gif" style="height: 105px" />
-              <!-- <div class="spinner">
-                <div class="r1"></div>
-                <div class="r2"></div>
-                <div class="r3"></div>
-                <div class="r4"></div>
-                <div class="r5"></div>
-              </div> -->
-            </div>
-          </div>
-          <div class="details">
-            <h2></h2>
-            <p></p>
-          </div>
-          <div class="controls">
-            <div>
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="prev-control bground">
-              <i class="fa fa-backward"></i>
-            </div>
-            <div class="play-pause-control paused bground">
-              <i class="fa fa-play"></i>
-              <i class="fa fa-pause"></i>
-            </div>
-            <div class="next-control bground">
-              <i class="fa fa-forward"></i>
-            </div>
-            <div class="repeat-control">
-              <i class="fas fa-redo-alt"></i>
-            </div>
-          </div>
-          <div class="volume-container">
-            <output id="volume-output">100</output>
-            <input type="range" id="volume-slider" max="100" value="100" />
-            <div id="volume-button">
-              <i class="fas fa-volume-up"></i>
-            </div>
-          </div>
-        </div>
+    <div class="card-root">
+      <img class="dudu-bubu-img" src="./assets/icons/bubududu-drive.gif" />
 
-        <!--Left/Right Song-->
-        <div class="player-list">
-          <div class="toggle-list">
-            <i class="fa fa-angle-up"></i>
-            <i class="fa fa-angle-down"></i>
+      <div class="card">
+        <div class="player">
+          <div class="song-options-container">
+            <div class="song-option" id="song-option">Songs</div>
+            <div class="song-option" id="lori-option">Lori</div>
+            <div class="song-option" id="kahani-option">Kahani</div>
+          </div>
+          <div class="main">
+            <audio></audio>
+            <div class="thumbnail">
+              <img
+                src="./assets/images/49614720_2040712002633222_6009675289939608246_n.jpg"
+              />
+            </div>
+            <div class="seekbar" style="position: relative">
+              <input type="range" />
+              <div class="time-container">
+                <span id="current-time" class="time">0:00</span>
+                <span id="duration" class="time">0:00</span>
+              </div>
+              <div class="play-spinner">
+                <img src="./assets/icons/bubu-love.gif" style="height: 105px" />
+                <!-- <div class="spinner">
+              <div class="r1"></div>
+              <div class="r2"></div>
+              <div class="r3"></div>
+              <div class="r4"></div>
+              <div class="r5"></div>
+            </div> -->
+              </div>
+            </div>
+            <div class="details">
+              <h2></h2>
+              <p></p>
+            </div>
+            <div class="controls">
+              <div>
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="prev-control bground">
+                <i class="fa fa-backward"></i>
+              </div>
+              <div class="play-pause-control paused bground">
+                <i class="fa fa-play"></i>
+                <i class="fa fa-pause"></i>
+              </div>
+              <div class="next-control bground">
+                <i class="fa fa-forward"></i>
+              </div>
+              <div class="repeat-control">
+                <i class="fas fa-redo-alt"></i>
+              </div>
+            </div>
+            <div class="volume-container">
+              <output id="volume-output">100</output>
+              <input type="range" id="volume-slider" max="100" value="100" />
+              <div id="volume-button">
+                <i class="fas fa-volume-up"></i>
+              </div>
+            </div>
           </div>
 
-          <div class="list">
-            <div class="item">
-              <div
-                class="item-container"
-                style="display: flex; align-items: center"
-              >
-                <div class="thumbnail">
-                  <img src="" />
-                </div>
-                <div class="details">
-                  <h2></h2>
-                  <p></p>
+          <!--Left/Right Song-->
+          <div class="player-list">
+            <div class="toggle-list">
+              <i class="fa fa-angle-up"></i>
+              <i class="fa fa-angle-down"></i>
+            </div>
+
+            <div class="list">
+              <div class="item">
+                <div
+                  class="item-container"
+                  style="display: flex; align-items: center"
+                >
+                  <div class="thumbnail">
+                    <img src="" />
+                  </div>
+                  <div class="details">
+                    <h2></h2>
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <img class="dudu-bubu-img-bottom" src="./assets/icons/mimibubu.gif" />
     </div>
 
     <button id="fullscr">
