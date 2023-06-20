@@ -967,6 +967,14 @@ button:focus {
   top: -38px;
   left: 30px;
 }
+.dudu-bubu-img-right {
+  z-index: 999999999999;
+  height: 100px;
+  transform: scaleX(-1);
+  position: absolute;
+  top: -38px;
+  right: 30px;
+}
 .dudu-bubu-img-bottom {
   z-index: 999999999999;
   height: 115px;
