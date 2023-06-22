@@ -14,18 +14,28 @@ const calculateTime = (secs) => {
 };
 let originalSongList = [
   {
-    thumbnail: "./assets/images/cake-2.jpeg",
-    audio: "./assets/birthday/Bubu.mp3",
-    songname: "Birthday",
+    thumbnail:
+      "./assets/images/323720736_923484395487581_1043386982116428014_n.jpeg",
+    audio: "./assets/songs/Bekarar.mp3",
+    songname: "Bekarar",
     artistname: "🎧 Bubu 🎧",
-    option: "birthday",
+    option: "song",
   },
   {
-    thumbnail: "./assets/images/cake.jpeg",
-    audio: "./assets/birthday/Preeti.mp3",
-    songname: "Birthday Preeti",
+    thumbnail:
+      "./assets/images/324229777_135404352702105_2002262368483623706_n.jpeg",
+    audio: "./assets/songs/Jaane Kya Dhoondta Hai.mp3",
+    songname: "Jaane Kya",
     artistname: "🎧 Mitthu 🎧",
-    option: "birthday",
+    option: "song",
+  },
+  {
+    thumbnail:
+      "./assets/images/323703637_193717379917853_1243084142063370312_n.jpeg",
+    audio: "./assets/songs/Tum Ho.mp3",
+    songname: "Tum Ho",
+    artistname: "🎧 Chatori 🎧",
+    option: "song",
   },
   {
     thumbnail:
@@ -41,46 +51,6 @@ let originalSongList = [
     audio: "./assets/songs/Sukoon.mp3",
     songname: "Sukoon",
     artistname: "🎧 Bubu 🎧",
-    option: "song",
-  },
-  {
-    thumbnail:
-      "./assets/images/323703637_193717379917853_1243084142063370312_n.jpeg",
-    audio: "./assets/songs/Choo Lo.mp3",
-    songname: "Choo Lo",
-    artistname: "🎧 Mitthu 🎧",
-    option: "song",
-  },
-  {
-    thumbnail:
-      "./assets/images/51870135_2250395895218722_1971264528730143164_n.jpg",
-    audio: "./assets/songs/Raat Din.mp3",
-    songname: "Raat Din",
-    artistname: "🎧 Chatori 🎧",
-    option: "song",
-  },
-  {
-    thumbnail:
-      "./assets/images/50547388_337747130409179_6773505002304812641_n.jpg",
-    audio: "./assets/songs/Phir Miloge Na.mp3",
-    songname: "Phir Miloge Na",
-    artistname: "🎧 Bubu 🎧",
-    option: "song",
-  },
-  {
-    thumbnail:
-      "./assets/images/323720736_923484395487581_1043386982116428014_n.jpeg",
-    audio: "./assets/songs/Matkar Maya Ko Ahankar.mp3",
-    songname: "Matkar Maya Ko",
-    artistname: "🎧 Mumfali 🎧",
-    option: "song",
-  },
-  {
-    thumbnail:
-      "./assets/images/324229777_135404352702105_2002262368483623706_n.jpeg",
-    audio: "./assets/songs/Baadalon Mein Ghar.mp3",
-    songname: "Baadalon Mein Ghar",
-    artistname: "🎧 Mitthu 🎧",
     option: "song",
   },
   {
@@ -105,16 +75,9 @@ let originalSongList = [
     artistname: "🎧 Bubu 🎧",
     option: "lori",
   },
-  {
-    thumbnail: "./assets/images/pr-t-1.JPG",
-    audio: "./assets/stories/Power of Silence.mp3",
-    songname: "Power of Silence",
-    artistname: "🎧 Keep listen 🎧",
-    option: "kahani",
-  },
 ];
 
-let songList = originalSongList.filter(({ option }) => option === "birthday");
+let songList = originalSongList.filter(({ option }) => option === "song");
 let currentSongIndex = 0;
 let muteState = "unmute";
 let player = _(".player"),
@@ -136,14 +99,12 @@ let main = {
   nextControl: _(".player .main .controls .next-control"),
   songOptionBtn: _("#song-option"),
   loriOptionBtn: _("#lori-option"),
-  birthdayOptionBtn: _("#birthday-option"),
 };
 
-main.birthdayOptionBtn.classList.add("active-option");
+main.songOptionBtn.classList.add("active-option");
 main.songOptionBtn.addEventListener("click", function () {
   main.songOptionBtn.classList.add("active-option");
   main.loriOptionBtn.classList.remove("active-option");
-  main.birthdayOptionBtn.classList.remove("active-option");
   currentSongIndex = 0;
   songList = originalSongList.filter(({ option }) => option === "song");
   initialLoad();
@@ -153,19 +114,8 @@ main.songOptionBtn.addEventListener("click", function () {
 main.loriOptionBtn.addEventListener("click", function () {
   main.songOptionBtn.classList.remove("active-option");
   main.loriOptionBtn.classList.add("active-option");
-  main.birthdayOptionBtn.classList.remove("active-option");
   currentSongIndex = 0;
   songList = originalSongList.filter(({ option }) => option === "lori");
-  initialLoad();
-  loadSong(currentSongIndex, 1);
-});
-
-main.birthdayOptionBtn.addEventListener("click", function () {
-  main.songOptionBtn.classList.remove("active-option");
-  main.loriOptionBtn.classList.remove("active-option");
-  main.birthdayOptionBtn.classList.add("active-option");
-  currentSongIndex = 0;
-  songList = originalSongList.filter(({ option }) => option === "birthday");
   initialLoad();
   loadSong(currentSongIndex, 1);
 });

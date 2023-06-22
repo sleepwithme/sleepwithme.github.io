@@ -464,7 +464,7 @@ button:focus {
     justify-content: space-between;
 }
 .song-options-container .song-option {
-    width: 76px;
+    width: 50%;
     padding: 2px;
     cursor: pointer;
     color: white;
@@ -479,7 +479,7 @@ button:focus {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    top: 10px;
+    top: 18px;
     width: 100%;
     display: flex;
 }
