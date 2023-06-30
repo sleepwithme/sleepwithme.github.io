@@ -75,6 +75,14 @@ let originalSongList = [
     artistname: "🎧 Bubu 🎧",
     option: "lori",
   },
+  {
+    thumbnail:
+      "./assets/images/49614720_2040712002633222_6009675289939608246_n.jpg",
+    audio: "./assets/story/Kahani.mp3",
+    songname: "Kahani",
+    artistname: "🎧 Bubu 🎧",
+    option: "kahani",
+  },
 ];
 
 let songList = originalSongList.filter(({ option }) => option === "song");
@@ -99,12 +107,14 @@ let main = {
   nextControl: _(".player .main .controls .next-control"),
   songOptionBtn: _("#song-option"),
   loriOptionBtn: _("#lori-option"),
+  kahaniOptionBtn: _("#kahani-option"),
 };
 
 main.songOptionBtn.classList.add("active-option");
 main.songOptionBtn.addEventListener("click", function () {
   main.songOptionBtn.classList.add("active-option");
   main.loriOptionBtn.classList.remove("active-option");
+  main.kahaniOptionBtn.classList.remove("active-option");
   currentSongIndex = 0;
   songList = originalSongList.filter(({ option }) => option === "song");
   initialLoad();
@@ -113,9 +123,20 @@ main.songOptionBtn.addEventListener("click", function () {
 
 main.loriOptionBtn.addEventListener("click", function () {
   main.songOptionBtn.classList.remove("active-option");
+  main.kahaniOptionBtn.classList.remove("active-option");
   main.loriOptionBtn.classList.add("active-option");
   currentSongIndex = 0;
   songList = originalSongList.filter(({ option }) => option === "lori");
+  initialLoad();
+  loadSong(currentSongIndex, 1);
+});
+
+main.kahaniOptionBtn.addEventListener("click", function () {
+  main.songOptionBtn.classList.remove("active-option");
+  main.loriOptionBtn.classList.remove("active-option");
+  main.kahaniOptionBtn.classList.add("active-option");
+  currentSongIndex = 0;
+  songList = originalSongList.filter(({ option }) => option === "kahani");
   initialLoad();
   loadSong(currentSongIndex, 1);
 });
